@@ -1,0 +1,71 @@
+repositório remoto com github
+
+** a partir de agora usaremos a branch main
+
+Cria-se um repositório no github sem README.md
+
+Depois cria um repositório local com o mesmo nome do repositório no github:
+-> escolhe o diretório e cria o arquivo README.md. No arquivo README.md: "# texto de apresentação
+do repositório (em markdown)" >> README.md
+-> se quiser pode criar o arquivo .gitignore também
+-> git init
+-> git config user.name "nome do usuário que utilizará o repositório"
+-> git config user.email "email do usuário que utilizatá o repositório"
+-> git add README.md
+-> git add .gitignore
+-> git commit -m "texto do commit"
+-> git branch -M main
+-> git remote add origin url_link_do_repositório.git (registrando/associando o repositório local com o remoto)
+Só precisa de esse comando acima, 1 vez, depois para subir os arquivos é só utilizar os comandos git de
+adicionar e commitar, por fim para subrir para o repositório remoto vc usa o push (comando abaixo)
+-> git push -u origin (nome do repositório remoto) main (iniciado na branch main)
+Depois do push ele vai pedir usuário e senha do github para enviar as informações para o repositório
+
+Gerenciar/ver o repositórios remotos -> git remote -v
+
+Se você não quiser ficar digitando usuário e senha toda vez que fizer um push para o repositório remoto
+vc pode usar -> git config credential.helper store (porém só funciona para esse repositório se criar outro
+vai ter que digitar usuário e senha novamente)
+
+Se usar -> git config --global credential.helper store (nesse caso tem que ter cuidado pq ele não vai 
+mais pedir usuário e senha); porém, independente da forma e chato que seja, o ideal é não salvar senhas, 
+por segurança é melhor digitar. Para desfazer essa configuração de modo global:
+-> git config --global --unset credential.helper store. 
+Para desfazer essa configuração de modo local:
+-> git config --unset credential.helper store
+
+clonando repositório: git clone url_link_do_repositório
+depois vc inicializa ele normalmente
+
+O comando git push envia arquivos para outro repositório, sendo remoto ou não (pois podemos criar um
+repositório Bare de forma local), logo para baixar os arquivos de um repositório externo para um 
+repositório local, utilizamos -> git pull origin main
+
+*** lembrando que só quem pode fazer push para um repositório são colaboradores do projeto e
+para adicionar os colaboradores vc faz pelo settings do repositório na interface gráfica do 
+github. Aí o github envia um invite para o email ou git da pessoa para ela aceitar e colaborar no
+projeto. Inclusive apagar uma pessoa ou dar permissões.
+
+Podemos consultar o histórico dos commits pelo -> git log ou podemos ver na interface web do git hub,
+inclusive entrar no commit, tudo pelo terminal faz pela interface web do github também.
+
+se der algum problema em algum arquivo e voltar para o estado original -> git checkout -- nome_do_arquivo_bixado
+
+se der algum problema em muito ou todos os arquivos e voltar para o estado 
+original -> git checkout -- .(ponto indicando o diretório que estão os arquivos)
+
+de repente se tiver alguma alteração no em algum arquivo do projeto e após feito add, commit e push
+vc pode usar -> git revert id_do_commit anterior. Esse comando vai voltar aos arquivos do commit anterior
+e vai commitar o revert tb para que fique no histórico o que aconteceu e ser visto do -> git log
+
+o comando -> git reset id_do_commit ou HEAD~número_de_commits_voltando -> vc vai voltar os arquvos 
+ao commit anterior porém não vai aparecer no histórico de logs e vai apagar o commit do erro.
+Muito cuidade com esse comando.
+
+Nos casos que houver conflito, no pull para o repositório o próprio git já mostra o arquivo com as mudanças
+aí vc apaga nos arquicos ou adiciona o que vc quiser e depois faz um novo add, commit e push.
+
+lembrando que tudo que se faz via terminal tb se faz via interface web do github, e para efeitos de 
+gráfico e imagens mostra bem mais coisas.
+
+

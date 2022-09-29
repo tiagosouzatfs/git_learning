@@ -1,0 +1,21 @@
+
+Na interface gráfica do repositório no gitgub, há uma opção de issues, que é onde o dono ou outros podem
+avisar algum problema ou alteração em algum arquivo no projeto. Até delegar pessoas no github para corrigir
+esses issues. E assim, ajudar a gerenciar o projeto.
+
+Fazendo uso do fork: na interface web do github em determinado repositório escolhido tem a opção de "fork"
+essa opção faz com que vc faça uma cópia de um repositório/projeto público e sem licença, e ele se torno seu.
+Dessa forma vc não precisa começar um projeto do zero, vc pode forkar um projeto que vc deseje em andamento
+e continuar para vc.
+
+Pull Request (colaboração entre pessoas e projetos): se vc fizer um fork em um projeto e conseguir consertar
+alguma coisa no projeto ou melhorar ou ainda adicionar alguma funcionalidade vc pode fazer um pull request e
+o usuário dono do projeto que vc fez o fork vai avaliar e ver se acha interessante ou não. Há muitos projetos
+públicos que a intenção é justamente essa, dividir o trabalho com pessoas que querem colaborar em algum 
+projeto. Dessa forma, depois que vc faz um fork ele deixa salvo de quem vc fez o fork (dono do projeto), aí
+vc vai faz as alterações e no seu repositório que foi forkado vc escolhe o botão na interface web do github
+um botão chamado Pull request e manda uma mensagem informando o que foi alterado, se o dono do projeto aceitar
+na parte do pull request dela vai aparecer o pull request com as informações e alterações enviadas  
+aí o dono aceita com a opção "merge pull request" e aparece seu pull request no projeto original com a sua 
+alteração.
+

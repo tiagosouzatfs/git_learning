@@ -1,0 +1,60 @@
+Trabalhando com Branch's
+
+Branch nada mais é do que uma ramificação do projeto principal (master)
+pq às vezes queremos testar uma funcionalidade ou um recurso no projeto
+e que se der errado é só apagar e pronto
+
+Para consultar as branch's do projeto -> git branch
+Ao consultar as branch's se atentar no '*' pois o asterísco vai indicar
+qual branch estamos trabalhando atualmente
+
+Para criar uma branch -> git branch nome_da_branch_que_quer_criar
+
+para mudar/acessar de branch -> git checkout nome_da_branch
+
+para apagar uma branch -> git branch -D nome_da_branch (antes do merge)
+
+trabalhando com merges
+
+para fazer um merge entre as branchs do projeto -> git merge nome_da_branch(branch que vai 
+se juntar com a atual)
+
+para apagar uma branch -> git branch -d nome_da_branch (depois do merge)
+
+Para criar uma branch se não existir e já mudar para ela -> git checkout -b nome_da_branch (se 
+existir ele só entra na branch)
+
+Existe também, uma forma de merge, que chama rebase, ela faz a mesma função do merge, porém,
+ela faz o merge baseado no ponto que houve a criação da branch.
+
+Clonando um repositório -> git clone caminho_do_repositório (se o repositório for local, coloca
+o caminho até o diretório, se for remoto, coloca toda a url) Lembrando que para confirmar que um
+repositório é repositório git, ele possui um arquivo .git 
+
+O comando -> git pull, baixa os arquivos de um repositório remoto ou local no seu repositório
+
+Para criar um repositório central em que mais de um usuário pode comitar (git init --bare) -> git push
+
+O comando -> git pull, ele é mais completo, mas vc poderia fazer o git fetch para baixar os arquivos
+e o git merge ou git rebase para reorganizer e juntar os arquivos
+
+Tag é uma versão final de um projeto, que contém até aquele momento os arquivos de um projeto com
+alguma versão final ou que até ali funciona. Depois do tag criado por um usuário tem que dar o push
+para enviar ao repositório central, avisando que o que foi feito até aquele momento é uma versão
+específica, pq depois que vc gria uma tag, vc não pode mais mexer nesse projeto, nem commit nem
+mais nada, vc pode até criar uma branch nessa tag, mas alterar o que foi feito não vai poder mais
+-> git tag versao_que_quer_dar -> git push origin versao_que_quer_ver
+
+Consultar tags disponíveis -> git tag 
+
+Para olhar o que tem em uma determinada tag (pq alterar não pode mais) -> git checkout tag_que_foi_criada
+
+
+
+
+
+
+
+
+
+

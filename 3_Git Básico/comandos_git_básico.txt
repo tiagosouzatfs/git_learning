@@ -1,0 +1,104 @@
+sudo apt install git -y
+
+git init -> utilizado para inicializar o git em um determinado diretório para virar um repositório local
+
+git stauts -> verifica a situação do repositório
+
+.gitignore -> arquivo criado com a finalidade de não monitorar pelo git alguns arquivos ou diretórios
+
+Todas às vezes que se for iniciar um repositório, já configura o usuário e e-mail da pessoa que vai fazer
+a utilização do git. Para o caso de um computador público, que mais de uma pessoa vai ter acesso, o ideal
+é inicializar o repositório e em seguida já inciar a gerência LOCAL do repositório, ou seja, seu usuário
+será utilizado para gerenciar, usando o git, apenas esse repositório específico 
+-> git config user.name "nome da pessoa/pode ser qualquer nome que identifique quem está usando o repositório"
+-> git config user.email "email@emaildousuario.com.br"
+
+Já para o caso de um computador privado, que só uma pessoa utiliza, e para evitar que todas às vezes que 
+se for inicializar um repositório, o usuário do git fique iniciando o repositório localmente com o comando
+a cima, utiliza-se a flag "--global" 
+-> git config --global user.name "nome da pessoa/pode ser qualquer nome que identifique quem está usando o repositório"
+-> git config --global user.email "email@emaildousuario.com.br"
+
+git add <arquivo do repositório> -> adicionar qual arquivo será monitorado pelo git, que estarão pronto para o commit
+
+git commit -m "mensagem ou comentário importante para os arquivos" -> o commit, nada mais é que um snapshot do estado
+atual do trabalho no git
+
+Adicionando todos os arquivos de uma vez só -> git add .(só o ponto mesmo)
+
+Vendo o histórico dos commit's (logs) -> git log
+os logs do git vem por padrão com o visualizador e editor de arquivos 'less', então se vc quiser pesquisar no arquivo
+(caso o arquivo de logs seja muito grande) ele vai aparecer ': (dois pontos)' aí para pesquisar nos logs vc coloca a '/'
+, para cancelar a pesquisa vc aperta 'b' e para sair aperta 'q'. Caso vc queira mudar o editor de arquivos apenas para
+vc (local), vc pode mudar com o comando -> git config core.pager cat(vc escolhe o editor) e se quiser para todos os
+usuários do git de forma global -> git config --global core.pager cat (só adicionar a flag --global)
+
+Ver o último commit no log ou ver uma quantidade qualquer de commits no log -> git log -1 (ulitmo log de commit)
+mas vc também pode escolher a quantidade de logs que vc quiser -> git log -n (n é a quantidade de que vc quiser)
+
+Como os logs tem bastante informação, o git dá a opção de mostrar apenas as informações importantes com o 
+comando -> git log --oneline -n (n é a quantidade de que vc quiser), pq aí mostra o hash e a mensagem do commit
+
+pesquisar os commits no log antes de uma data específica (se atentar ao formato da data) -> git log --before="2022-05-10"
+
+pesquisar os commits no log depois de uma data específica (se atentar ao formato da data) -> git log --after="2022-05-10"
+
+pode pesquisar na data como acima combinando com as flags de quantidade de logs mostrados -> git log --after="2022-05-10" -4
+
+pesquisar logs que estavam a determinados dias atrás -> git log --since="2 days ago"
+
+pesquisar logs que estavam a determinadas semanas depois -> git log --after="1 week ago"
+
+pesquisando logs pelo usuário (author) que emitiu o commit -> git log --author="Tiago"
+
+ajuda de logs do git -> git help log
+
+Vc pode voltar no tempo a qualquer momento e consultar algum arquivo ou pasta no momento que vc desejar, é feito um snapshot
+na hora do commit e gera-se um hash e com esse hash podemos pesquisar os snapshots para voltar em algum momento para consultar
+algo ou algum erro que deu no projeto atual e quer voltar para antes enquanto funcionava - > git checkout (valor do hash gerado
+pelo commit) e para ir novamente ao último commit -> git checkout master (master é o último commit feito)
+
+Se o arquivo já estiver monitorado pelo git, vc pode fazer algumas alterações como por exemplo renomear os arquivos -> git mv
+arquivo_original arquivo_original_renomeado
+
+Se renomear o arquivo ou pasta via git, basta só fazer o commit para gerar o snapshot. Já se renomear o arquivo via mouse ou 
+teclado diretamente no arquivo ou diretório que está monitorado pelo git, vc precisa adicionar o arquivo renomeado, adicionar
+o arquivo que ele considera deletado, com o nome do arquivo original, e depois fazer o commit do arquivo renomeado, ou seja, 
+é tentar fazer ao máximo as alterações pelo próprio git, dá bem menos trabalho e tem mais confiança no resultado.
+
+
+Para remover para o arquivo o git tb tem uma ferramenta para deleção de arquivos e pastas, pq pelo git vc só vai precisar 
+comitar, se apagar pelo mouse ou teclado vai ter que adicionar e depois deletar. Se for arquivo -> git rm arquivo_que_quer_apagar
+Se quer apagar um diretório com arquivos dentro, deverá usar a flag recursiva "-r" -> git rm -r diretório_que_vai_apagar
+
+Para vc ver a diferença do que foi mudado entre a última mudança depois de adicionar e antes de comitar comparando com o último 
+commit, as alterações vc poder ver com -> git diff --staged
+
+Para vc ver a diferença do que foi mudado entre a última mudança depois de adicionar e antes de comitar comparando com um 
+commit específico, as alterações vc poder ver com -> git diff hash_do_commit_a_ser_comparado
+
+Para ver a diferença entre dois commits específicos -> git diff hash_commit_mais_antigo hash_commit_mais_novo
+
+Se o último commit estiver com a frase errada ou com erros ortográficos ou quiser fazer uma mudança proposital no texto
+ou até mesmo incluir um arquivo nesse último commit, ao fazer o commit com a flag --amend o git adiciona e reorganiza com
+o commit anterior (git log -1)-> git commit --amend -m "nova_linha_correta"
+
+Se vc adicionou um arquivo e antes de commitar percebeu que precisa alterar algo, vc poder voltar o estagio do arquvo no git
+para não monitorado como se vc não tivesse adicionado -> git restore --staged arquivo
+
+Antes de adicionar um arquivo, aconteceu alguma coisa e deu errado alguma linha de arquivo ou arquivo, vc pode trazer de volta
+apenas um arquivo para o último commit, o que estava sem as últimas alterações falhas -> git checkout arquivo
+
+Antes de adicionar um arquivo, aconteceu alguma coisa e deu errado em muitos arquivos, vc pode trazer de volta
+todos os arquivos para o último commit (HEAD), o que estava sem as últimas alterações falhas -> git reset HEAD --hard
+pq nesse caso ele vai sobrescrever todos os arquivos atuais modificados com os arquivos do último commit.
+
+Se o último commit deu ruim e deu tudo errado, e queremos descartar o último commit e voltar um commit anterior a ele
+-> git reset HEAD^ --hard    ***Tem esse circunflexo mesmo
+
+
+
+
+
+
+
